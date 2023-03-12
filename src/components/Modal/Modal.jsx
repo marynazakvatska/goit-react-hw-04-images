@@ -1,10 +1,9 @@
-import { Children, useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Modall, Overlay } from './Modal.styled'
+import { Modall, Overlay } from './Modal.styled';
 import PropTypes from 'prop-types';
 
-
-const modalRoot = document.querySelector('#modal-root')
+const modalRoot = document.querySelector('#modal-root');
 
 /* export default class Modal extends Component {
     componentDidMount() {
@@ -50,56 +49,48 @@ const modalRoot = document.querySelector('#modal-root')
      
 }; */
 
-
-export default function Modal ({onClose, children}) {
+export default function Modal({ onClose, children }) {
   /*   componentDidMount() {
       console.log('componendDidMount')
       window.addEventListener('keydown', this.handleKeyDown)
     } */
-    
-/*   componentWillUnmount() {
+
+  /*   componentWillUnmount() {
     console.log("unmount")
     window.removeEventListener('keydown', this.handleKeyDown)
   } */
-  
+
+
+  const handleKeyDown = useCallback(e => {
+    if (e.code === 'Escape') {
+      onClose();
+    }
+  }, [onClose]);
 
   useEffect(() => {
-
- window.addEventListener('keydown', handleKeyDown)
+    window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown)   //componentWillUnmount()
-    }
-  }, [])
+      window.removeEventListener('keydown', handleKeyDown); //componentWillUnmount()
+    };
+  }, [handleKeyDown]);
 
- const handleKeyDown = e => {
-   if (e.code === 'Escape') {
-         onClose();
-        }
-}
 
-  
- const handleBackdropClick = e => {
+  const handleBackdropClick = e => {
     if (e.target === e.currentTarget) {
-      onClose()
+      onClose();
     }
-  }
-         return  createPortal(
-        <Overlay onClick={handleBackdropClick}>
-             <Modall >
-                {children}
-               
-  </Modall>
-</Overlay>, modalRoot
-    )
-    
-   
+  };
+  return createPortal(
+    <Overlay onClick={handleBackdropClick}>
+      <Modall>{children}</Modall>
+    </Overlay>,
+    modalRoot
+  );
 }
 
- Modal.propTypes = {
-   handleKeyDown: PropTypes.func,
-   handleBackdropClick: PropTypes.func,
-   useEffect: PropTypes.func,
-    
-     
+Modal.propTypes = {
+  handleKeyDown: PropTypes.func,
+  handleBackdropClick: PropTypes.func,
+  useEffect: PropTypes.func,
 };

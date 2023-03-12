@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ImageGallerys } from './ImageGallery.styled';
 import ImageGalleryItem from 'components/ImageGalleryItem';
 import Loader from 'components/Loader';
