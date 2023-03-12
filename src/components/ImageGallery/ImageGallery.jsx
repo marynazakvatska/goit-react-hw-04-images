@@ -8,8 +8,6 @@ import PropTypes from 'prop-types';
 
 export default function ImageGallery({ addPage, status, images, setModalPicture, error }) {
  
-  /* const [status, setStatus] = useState('idle')
- */
   
     if (status === 'idle') {
       return <div>Enter the name of the picture</div>;
