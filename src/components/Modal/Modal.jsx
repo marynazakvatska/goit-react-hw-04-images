@@ -39,7 +39,7 @@ export default function Modal({ onClose, children }) {
 }
 
 Modal.propTypes = {
-  handleKeyDown: PropTypes.func,
+ 
   handleBackdropClick: PropTypes.func,
-  useEffect: PropTypes.func,
+  children: PropTypes.any,
 };

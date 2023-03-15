@@ -53,7 +53,6 @@ export default function Searchbar({ qwe, searchValeu }) {
 }
 
 Searchbar.propTypes = {
-  onSubmit: PropTypes.string,
   handleSubmit: PropTypes.func,
   handleNameChange: PropTypes.func,
 };

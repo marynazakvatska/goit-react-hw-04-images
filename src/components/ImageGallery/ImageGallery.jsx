@@ -35,8 +35,8 @@ export default function ImageGallery({ addPage, status, images, setModalPicture,
 
 
 ImageGallery.propTypes = {
-  onClick: PropTypes.func,
+  addPage: PropTypes.func,
   setModalPicture: PropTypes.func,
-   photos: PropTypes.array,
+   images: PropTypes.array,
   
 };

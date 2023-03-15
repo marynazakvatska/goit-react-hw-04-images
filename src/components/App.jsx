@@ -45,7 +45,7 @@ console.log({
             if (data.hits.length > 0) {
               const newImages = data.hits;
               setData(prevState => [...prevState, ...newImages]);
-            /*   setPhoto(''); */
+       
             }
           }
           setStatus('resolved');
@@ -110,8 +110,14 @@ console.log({
 
 App.propTypes = {
   toggleModal: PropTypes.func,
-  setModalPicture: PropTypes.func,
+  setModalPic: PropTypes.func,
   handleFormSubmit: PropTypes.func,
+  modalPicture: PropTypes.string, 
   componentDidUpdate: PropTypes.func,
   addPage: PropTypes.func,
+  error: PropTypes.string,
+  status: PropTypes.string,
+  data: PropTypes.array,
+    
+  
 };
