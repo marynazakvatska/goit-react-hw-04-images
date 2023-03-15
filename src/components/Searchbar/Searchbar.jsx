@@ -10,7 +10,7 @@ import {
 } from './Searchbar.styled';
 import PropTypes from 'prop-types';
 
-export default function Searchbar({ qwe }) {
+export default function Searchbar({ qwe, searchValeu }) {
   const [photoName, setPhotoName] = useState('');
 
   const handleNameChange = e => {

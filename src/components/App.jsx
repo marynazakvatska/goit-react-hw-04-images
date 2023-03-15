@@ -30,20 +30,22 @@ export function App() {
 
   useEffect(() => {
     setStatus('pending');
+    
+
     if (prevPhoto !== photo || prevPage !== page) {
-      console.log({
-        prevPhoto,
-        photo,
-        prevPage,
-        page,
-      });
+console.log({
+      prevPhoto,
+      photo,
+      prevPage,
+      page,
+    });
       fetchImages(photo, page)
         .then(data => {
           if (data) {
             if (data.hits.length > 0) {
               const newImages = data.hits;
-
               setData(prevState => [...prevState, ...newImages]);
+            /*   setPhoto(''); */
             }
           }
           setStatus('resolved');
@@ -84,6 +86,7 @@ export function App() {
     setModalPicture(img);
     toggleModal();
   };
+
 
   return (
     <Appt>

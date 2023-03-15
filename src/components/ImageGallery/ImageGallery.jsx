@@ -13,7 +13,7 @@ export default function ImageGallery({ addPage, status, images, setModalPicture,
       return <div>Enter the name of the picture</div>;
     }
     if (status === 'rejected') {
-      return <h1>{error}</h1>;
+      return <h1>{error?.message}</h1>;
     }
     if (images.length === 0) {
       return <div>Nothing found</div>;
