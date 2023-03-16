@@ -8,7 +8,9 @@ import PropTypes from 'prop-types';
 
 export default function ImageGallery({ addPage, status, images, setModalPicture, error }) {
  
-  
+  /* console.log(images) */
+
+
     if (status === 'idle') {
       return <div>Enter the name of the picture</div>;
     }
@@ -37,6 +39,13 @@ export default function ImageGallery({ addPage, status, images, setModalPicture,
 ImageGallery.propTypes = {
   addPage: PropTypes.func,
   setModalPicture: PropTypes.func,
-   images: PropTypes.array,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      webformatURL: PropTypes.string,
+      tag: PropTypes.string,
+    })),
+  status: PropTypes.string, 
+error: PropTypes.object, 
   
 };

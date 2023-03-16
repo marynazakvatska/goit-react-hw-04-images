@@ -70,10 +70,13 @@ console.log({
   const reset = () => {
     setPage(1);
     setData([]);
-    setPhoto('');
+   /*  setPhoto(''); */
   };
 
   const handleFormSubmit = photoName => {
+    if (photoName === photo) {
+      return;
+    }
     reset();
     setPhoto(photoName);
   };
@@ -108,16 +111,3 @@ console.log({
   );
 }
 
-App.propTypes = {
-  toggleModal: PropTypes.func,
-  setModalPic: PropTypes.func,
-  handleFormSubmit: PropTypes.func,
-  modalPicture: PropTypes.string, 
-  componentDidUpdate: PropTypes.func,
-  addPage: PropTypes.func,
-  error: PropTypes.string,
-  status: PropTypes.string,
-  data: PropTypes.array,
-    
-  
-};

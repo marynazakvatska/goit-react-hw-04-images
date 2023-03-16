@@ -40,6 +40,6 @@ export default function Modal({ onClose, children }) {
 
 Modal.propTypes = {
  
-  handleBackdropClick: PropTypes.func,
+  onClose: PropTypes.func,
   children: PropTypes.any,
 };
