@@ -6,7 +6,7 @@ import ImageGallery from './ImageGallery';
 import fetchImages from 'components/fetchImages';
 import Modal from './Modal';
 import 'react-toastify/dist/ReactToastify.css';
-import PropTypes from 'prop-types';
+
 
 
 
